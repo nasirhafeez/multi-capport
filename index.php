@@ -26,7 +26,6 @@ $_SESSION["ap"]=$_GET['ap'];
 We have defined 3 user types:
 
 1. new : fresh user, logging in to the system for the first time, with no previous record in DB
-2. repeat_recent : repeat user, with previous record in DB, logging in within 180 days of time recorded in DB
 3. repeat_old : repeat user, with previous record in DB, logging in after 180 days of time recorded in DB
 
 Login flow for each type of user:
