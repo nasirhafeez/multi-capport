@@ -4,8 +4,4 @@
 
 $table_name = "";
 
-#Unifi Site ID for this site
-
-$site_id = "";
-
 ?>

@@ -5,7 +5,7 @@ session_start();
 <html>
 <head>
   <meta charset="utf-8">
-  <title>WiFi AW</title>
+  <title>ZigsaWiFi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="bulma.min.css" />
   <script defer src="vendor\fortawesome\font-awesome\js\all.js"></script>
@@ -17,7 +17,7 @@ session_start();
   <div class="bg">
     
     <form id="login_success" class="alphawifi_form" method="post" action="connecting.php">
-      <div id="alphawifi" class="content is-size-2">AlphaWifi</div>
+      <div id="alphawifi" class="content is-size-2">ZigsaWiFi</div>
       <div id="devices" class="content is-size-6">Some devices may need to be</div>
       <div id="devices" class="content is-size-6">enrolled manually. Contact support</div>
       <div id="devices" class="content is-size-6">at 303.209.2128 for assistance.</div>

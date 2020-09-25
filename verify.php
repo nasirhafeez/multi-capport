@@ -31,7 +31,7 @@ $verification = $twilio->verify->v2->services($serviceid)
 <html>
 <head>
   <meta charset="utf-8">
-  <title>WiFi AW</title>
+  <title>ZigsaWiFi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="bulma.min.css" />
   <script defer src="vendor\fortawesome\font-awesome\js\all.js"></script>
@@ -43,7 +43,7 @@ $verification = $twilio->verify->v2->services($serviceid)
   <div class="bg">
 
     <form id="login_success" class="alphawifi_form" method="post" action="result.php" onsubmit="return codeCheck()">
-      <div id="alphawifi" class="content is-size-2">AlphaWifi</div>
+      <div id="alphawifi" class="content is-size-2">ZigsaWifi</div>
       <div id="devices" class="content is-size-6">Please enter the 6 digit </div>
       <div id="devices" class="content is-size-6">code received on your provided</div>
       <div id="devices" class="content is-size-6">mobile number</div>
