@@ -39,10 +39,7 @@ We have defined 3 user types:
 Login flow for each type of user:
 
 1: new : index.php -> verify.php -> result.php -> verify_pass.php (or verify_fail.php) -> login_success.php -> connecting.php -> thankyou.htm
-2. repeat_recent : index.php -> welcome.php -> connecting.php -> thankyou.htm
-3. repeat_old : index.php -> verify.php -> result.php -> verify_pass.php (or verify_fail.php) -> login_success.php -> connecting.php -> thankyou.htm
-
-The login flow in case # 1 and 3 are the same, although different sections of code will run based on each user's unique type
+2. repeat : index.php -> welcome.php -> connecting.php -> thankyou.htm
 */
 
   $_SESSION["user_type"] = "new";
@@ -52,48 +49,33 @@ Checking DB to see if user exists or not. If found, the last_updated column is c
 within 180 days or after that
 */
 
-  // $host_ip = $_SERVER['HOST_IP'];
-  // $db_user = $_SERVER['DB_USER'];
-  // $db_pass = $_SERVER['DB_PASS'];
-  // $db_name = $_SERVER['DB_NAME'];
+  $host_ip = $_SERVER['HOST_IP'];
+  $db_user = $_SERVER['DB_USER'];
+  $db_pass = $_SERVER['DB_PASS'];
+  $db_name = $_SERVER['DB_NAME'];
 
-  // $con=mysqli_connect($host_ip,$db_user,$db_pass,$db_name);
+  $con=mysqli_connect($host_ip,$db_user,$db_pass,$db_name);
 
-  // if (mysqli_connect_errno()) {
-  //         echo "Failed to connect to SQL: " . mysqli_connect_error();
-  // }
+  if (mysqli_connect_errno()) {
+          echo "Failed to connect to SQL: " . mysqli_connect_error();
+  }
 
-  // $result = mysqli_query($con, "SELECT * FROM `$table_name` WHERE mac='$_SESSION[id]'");
+  $result = mysqli_query($con, "SELECT * FROM `$table_name` WHERE mac='$_SESSION[mac]'");
 
-  // if ($result->num_rows >= 1) {
-  // 	$row=mysqli_fetch_array($result);
+  if ($result->num_rows >= 1) {
+  	$row=mysqli_fetch_array($result);
 
-  //   $last_updated = $row[8];
-  //   $_SESSION["name"] = $row[2];
-  //   $_SESSION["db_id"] = $row[0];
+    $last_updated = $row[8];
+    $_SESSION["name"] = $row[2];
 
-  //   $date1 = DateTime::createFromFormat('Y-m-d H:i:s', $last_updated);
-
-  // 	mysqli_close($con);
-
-  //   $current_date = date("Y-m-d H:i:s");
-  //   $date2 = DateTime::createFromFormat('Y-m-d H:i:s', $current_date);
-
-  //   $interval = date_diff($date1, $date2);
-  //   $interval_days = $interval->days;
-
-  //   if($interval_days < 180) {
-  //     $_SESSION["user_type"] = "repeat_recent";
-  //     header("Location: welcome.php");
-  //   }
-  //   else {
-  //     mysqli_close($con);
-  //     $_SESSION["user_type"] = "repeat_old";
-  //   }
-  // }
-  // else {
-  //   mysqli_close($con);
-  // }
+    mysqli_close($con);
+    
+    $_SESSION["user_type"] = "repeat";
+    header("Location: welcome.php");
+  }
+  else {
+    mysqli_close($con);
+  }
 ?>
   <!doctype html>
   <html>
