@@ -41,11 +41,6 @@ if(isset($_POST["userurl"])) {
   unset($_SESSION["userurl"]);
 }
 
-$phone=$_SESSION["phone"];
-$fname=$_POST['fname'];
-$lname=$_POST['lname'];
-$email=$_POST['email'];
-
 $username = $_SESSION["username"];
 $password = $_SESSION["password"];
 $uamip = $_SESSION["uamip"];
@@ -64,6 +59,7 @@ $redirect_url = "http://$uamip:$uamport/logon?" .
 
 session_write_close();
 
+$phone=$_SESSION["phone"];
 $mac=$_SESSION["mac"];
 $ip=$_SESSION["ip"];
 $last_updated = date("Y-m-d H:i:s");
@@ -91,6 +87,10 @@ if (mysqli_connect_errno()) {
 
 if($_SESSION["user_type"]=="new"){
 
+  $fname=$_POST['fname'];
+  $lname=$_POST['lname'];
+  $email=$_POST['email'];
+
   mysqli_query($con, "
   CREATE TABLE IF NOT EXISTS `$table_name` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -109,7 +109,12 @@ if($_SESSION["user_type"]=="new"){
 
 }
 else {
-//  mysqli_query($con,"UPDATE `$table_name` SET phone='$phone', firstname='$fname', lastname='$lname', email='$email', mac='$mac', ip='$ip', last_updated='$last_updated' WHERE id='$db_id'");
+
+  $fname=$_SESSION['fname'];
+  $lname=$_SESSION['lname'];
+  $email=$_SESSION['email'];
+
+  mysqli_query($con,"INSERT INTO `$table_name` (phone, firstname, lastname, email, mac, ip, last_updated) VALUES ('$phone', '$fname', '$lname', '$email', '$mac', '$ip', '$last_updated')");
 }
 
 mysqli_close($con);

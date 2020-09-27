@@ -65,8 +65,10 @@ within 180 days or after that
   if ($result->num_rows >= 1) {
   	$row=mysqli_fetch_array($result);
 
-    $last_updated = $row[8];
-    $_SESSION["name"] = $row[2];
+    $_SESSION["phone"] = $row[1];
+    $_SESSION["fname"] = $row[2];
+    $_SESSION["lname"] = $row[3];
+    $_SESSION["email"] = $row[4];
 
     mysqli_close($con);
     

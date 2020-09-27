@@ -23,7 +23,7 @@ Printing a welcome message for the user
 	<div class="bg">
 
 		<div id="alphawifi2" class="content is-size-2">ZigsaWiFi</div>
-		<div id="devices" class="content is-size-6">Welcome, <?php echo htmlspecialchars($_SESSION["name"]);?>!</div>
+		<div id="devices" class="content is-size-6">Welcome, <?php echo htmlspecialchars($_SESSION["fname"]);?>!</div>
 		<div id="devices" class="content is-size-6">You'll be automatically authorized</div>
 		<div id="devices" class="content is-size-6">on the network in a few moments</div>
     
