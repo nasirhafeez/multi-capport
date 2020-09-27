@@ -109,8 +109,7 @@ if($_SESSION["user_type"]=="new"){
 
 }
 else {
-  $db_id = $_SESSION["db_id"];
-  mysqli_query($con,"UPDATE `$table_name` SET phone='$phone', firstname='$fname', lastname='$lname', email='$email', mac='$mac', ip='$ip', last_updated='$last_updated' WHERE id='$db_id'");
+//  mysqli_query($con,"UPDATE `$table_name` SET phone='$phone', firstname='$fname', lastname='$lname', email='$email', mac='$mac', ip='$ip', last_updated='$last_updated' WHERE id='$db_id'");
 }
 
 mysqli_close($con);
