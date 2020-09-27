@@ -41,9 +41,10 @@ if(isset($_POST["userurl"])) {
   unset($_SESSION["userurl"]);
 }
 
-$name=$_POST['name'];
+$phone=$_SESSION["phone"];
+$fname=$_POST['fname'];
+$lname=$_POST['lname'];
 $email=$_POST['email'];
-$newsletter = 'Yes';
 
 $username = $_SESSION["username"];
 $password = $_SESSION["password"];
@@ -72,18 +73,6 @@ Collecting the data entered by users of type "new" or "repeat_old" in form. It w
 For "repeat_recent" type users no change will be made in the DB, they'll be authorized directly
 */
 
-if($_SESSION["user_type"]=="new" || $_SESSION["user_type"]=="repeat_old"){
-  $phone=$_SESSION["phone"];
-  $fname = $_POST['fname'];
-  $lname = $_POST['lname'];
-  $aptunit = $_POST['aptunit'];
-  $offers = $_POST['c2'];  
-  
-  if ($offers != "Y") {
-          $offers = "N";
-  }
-}
-
 require __DIR__ . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
@@ -108,8 +97,7 @@ if($_SESSION["user_type"]=="new"){
     `phone` varchar(45) NOT NULL,
     `firstname` varchar(45) NOT NULL,
     `lastname` varchar(45) NOT NULL,
-    `apartment` varchar(45) NOT NULL,
-    `offers` varchar(45) NOT NULL,
+    `email` varchar(45) NOT NULL,
     `mac` varchar(45) NOT NULL,
     `ip` varchar(45) NOT NULL,
     `last_updated` varchar(45) NOT NULL,
@@ -117,12 +105,12 @@ if($_SESSION["user_type"]=="new"){
     UNIQUE KEY `id_UNIQUE` (`id`)
   )");
 
-  mysqli_query($con,"INSERT INTO `$table_name` (phone, firstname, lastname, apartment, offers, mac, ip, last_updated) VALUES ('$phone', '$fname', '$lname', '$aptunit', '$offers', '$mac', '$ip', '$last_updated')");
+  mysqli_query($con,"INSERT INTO `$table_name` (phone, firstname, lastname, email, mac, ip, last_updated) VALUES ('$phone', '$fname', '$lname', '$email', '$mac', '$ip', '$last_updated')");
 
 }
 else {
   $db_id = $_SESSION["db_id"];
-  mysqli_query($con,"UPDATE `$table_name` SET phone='$phone', firstname='$fname', lastname='$lname', apartment='$aptunit', offers='$offers', ip='$ip', last_updated='$last_updated' WHERE id='$db_id'");
+  mysqli_query($con,"UPDATE `$table_name` SET phone='$phone', firstname='$fname', lastname='$lname', email='$email', mac='$mac', ip='$ip', last_updated='$last_updated' WHERE id='$db_id'");
 }
 
 mysqli_close($con);

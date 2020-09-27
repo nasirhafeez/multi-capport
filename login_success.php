@@ -44,9 +44,9 @@ session_start();
       
       <div class="field">
         <div class="control has-icons-left">
-          <input class="input" type="text" id="form_font" name="aptunit" placeholder="Apt / Unit" required>
+          <input class="input" type="email" id="form_font" name="email" placeholder="Email" required>
           <span class="icon is-small is-left">
-            <i class="fas fa-building"></i>
+            <i class="fas fa-envelope"></i>
           </span>
         </div>
       </div>
@@ -138,16 +138,6 @@ session_start();
           </div>
         </div>
                           
-        <div id="check_2" class="field">
-          <div class="control">
-            <label class="checkbox">
-              <div class="terms">
-                <input type="checkbox" name="c2" value="Y">
-                Yes, I would like to receive news and offers via email.
-              </div>
-            </label>
-          </div>
-        </div>
       </div>
                         
     </form>
