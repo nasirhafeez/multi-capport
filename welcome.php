@@ -22,11 +22,19 @@ Printing a welcome message for the user
 <body>
 	<div class="bg">
 
-		<div id="alphawifi2" class="content is-size-2">ZigsaWiFi</div>
+    <section id="logo" class="section">
+      <figure>
+        <img src="logo.png">
+      </figure>
+    </section>
+
 		<div id="devices" class="content is-size-6">Welcome, <?php echo htmlspecialchars($_SESSION["fname"]);?>!</div>
 		<div id="devices" class="content is-size-6">You'll be automatically authorized</div>
 		<div id="devices" class="content is-size-6">on the network in a few moments</div>
     
+    <div id="powered_welcome" class="content is-size-6">Powered by Zigsa</div>
+    <div id="copyright" class="content is-size-6">(C) Copyright 2020</div>
+
 	</div>
 </body>
 </html>

@@ -138,9 +138,17 @@ header('Location: ' . $redirect_url);
 <body>
 	<div class="bg">
 
-		<div id="alphawifi2" class="content is-size-2">ZigsaWiFi</div>
-		<div id="devices" class="content is-size-6">Please wait, you are being </div>
+    <section id="logo" class="section">
+      <figure>
+        <img src="logo.png">
+      </figure>
+    </section>
+
+		<div id="handle" class="content is-size-6">Please wait, you are being </div>
 		<div id="devices" class="content is-size-6">authorized on ZigsaWiFi</div>
+
+    <div id="powered_handle" class="content is-size-6">Powered by Zigsa</div>
+    <div id="copyright" class="content is-size-6">(C) Copyright 2020</div>
 
 	</div>
 </body>

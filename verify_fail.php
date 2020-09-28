@@ -12,7 +12,7 @@ $redirect_url = "index.php?id=".$_SESSION["id"]."&ap=".$_SESSION["ap"];
 <html>
 <head>
   <meta charset="utf-8">
-  <title>WiFi AW</title>
+  <title>ZigsaWiFi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="bulma.min.css" />
   <script defer src="vendor\fortawesome\font-awesome\js\all.js"></script>
@@ -24,10 +24,18 @@ $redirect_url = "index.php?id=".$_SESSION["id"]."&ap=".$_SESSION["ap"];
 <body>
 	<div class="bg">
 
-		<div id="alphawifi2" class="content is-size-2">AlphaWifi</div>
-		<div id="devices" class="content is-size-6">Sorry! The code you entered</div>
+    <section id="logo" class="section">
+      <figure>
+        <img src="logo.png">
+      </figure>
+    </section>
+
+		<div id="result" class="content is-size-6">Sorry! The code you entered</div>
 		<div id="devices" class="content is-size-6">is not correct. You'll shortly be</div>
 		<div id="devices" class="content is-size-6">redirected back to our main page</div>
+
+    <div id="powered_verifypass" class="content is-size-6">Powered by Zigsa</div>
+    <div id="copyright" class="content is-size-6">(C) Copyright 2020</div>
 
 	</div>
 </body>

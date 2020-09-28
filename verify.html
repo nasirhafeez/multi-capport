@@ -1,32 +1,3 @@
-<?php error_reporting(E_ALL ^ E_NOTICE); 
-session_start();
-
-/*
-This page sends the API request to Twilio to send SMS to user's provided number, and the user is given is asked to
-enter code received on their phone. Some basic error handling is also given using the Javascript function
-*/
-
-$phone = $_POST['country_code'].$_POST['phone_number']; 
-
-$_SESSION['phone'] = trim($phone);
-
-require __DIR__ . '/vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
-$dotenv->load();
-
-$sid = $_SERVER['SID'];
-$token = $_SERVER['TOKEN'];
-$serviceid = $_SERVER['SERVICEID'];
-
-use Twilio\Rest\Client;
-
-$twilio = new Client($sid, $token);
-
-$verification = $twilio->verify->v2->services($serviceid)
-                                   ->verifications
-                                   ->create($_SESSION['phone'], "sms");
-?>
 <!doctype html>
 <html>
 <head>

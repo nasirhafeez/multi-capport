@@ -3,7 +3,7 @@
 */
 
 body {
-    color: white;
+    color: black;
     font-family: "Ariel", sans-serif;
 }
 
@@ -15,12 +15,37 @@ body {
     left:0;
     width: 100%;
     height: 100%;
-    background: url('background.jpg') center;
+    background-color: white;
     background-size: cover;
 }
 
-.alphawifi_form {
-    margin-top: 20px;
+.bg_loginsuccess {
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    background-size: cover;
+}
+
+#logo {
+    padding-top: 30px;
+    max-width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.zigsawifi_form {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.zigsawifi_form_success {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -39,16 +64,85 @@ body {
     width: 200px;
 }
 
-#alphawifi {
-    text-align: center; margin-top: 20px; margin-bottom: 5px;
-}
-
-#alphawifi2 {
-    text-align: center; margin-top: 40px; margin-bottom: 5px;
+#login {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 #devices {
-    text-align: center; margin: 0;
+    text-align: center;
+    margin: 0;
+}
+
+#handle {
+    text-align: center;
+    margin: 0;
+    margin-top: 10px;
+}
+
+#thanks {
+    text-align: center;
+    margin: 0;
+    margin-top: 15px;
+}
+
+#result {
+    text-align: center;
+    margin: 0;
+    margin-top: 40px;
+}
+
+#customers {
+    text-align: center;
+    margin: 0;
+}
+
+#powered {
+    text-align: center;
+    margin: 0;
+    margin-top: 100px;
+}
+
+#powered_verify {
+    text-align: center;
+    margin: 0;
+    margin-top: 100px;
+}
+
+#powered_verifypass {
+    text-align: center;
+    margin: 0;
+    margin-top: 160px;
+}
+
+#powered_loginsuccess {
+    text-align: center;
+    margin: 0;
+    margin-top: 30px;
+}
+
+#powered_handle {
+    text-align: center;
+    margin: 0;
+    margin-top: 220px;
+}
+
+#powered_thanks {
+    text-align: center;
+    margin: 0;
+    margin-top: 220px;
+}
+
+#powered_welcome {
+    text-align: center;
+    margin: 0;
+    margin-top: 210px;
+}
+
+#copyright {
+    text-align: center;
+    margin: 0;
 }
 
 #codeError {
@@ -76,25 +170,23 @@ body {
 }
 
 a {
-    color: white;
+    color: black;
     text-decoration: underline;           
 }
 
 a:hover {
-    color: white;
-}
-
-#support {
-    color: blue;
-    text-decoration: underline;
+    color: black;
 }
 
 #checkbox_align {
-    margin: auto; width: 76%; margin-left: 45px;
+    margin: auto;
+    width: 76%;
+    margin-left: 85px;
 }
 
 #check_1 {
-    margin-top: 10px; margin-bottom: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 #modal-body {
@@ -110,14 +202,19 @@ a:hover {
     align-items: center
 }
 
-/* Media Query for Mobiles */
+/* Media Query for Desktops */
 
 @media only screen and (min-width: 768px) {
     html {
         overflow: hidden;
     }
     .bg {
-        position: absolute; background: url('background.jpg') fixed; background-size: 100% 100%;
+        position: absolute;
+        background-size: 100% 100%;
+    }
+    #logo {
+        padding-top: 50px;
+        max-width: 10%;
     }
     #country_code {
         width: 120px;
@@ -125,20 +222,35 @@ a:hover {
     #phone_number {
         width: 200px;
     }
-    #alphawifi2 {
-        text-align: center; margin-top: 80px; margin-bottom: 5px;
+    #powered {
+        margin-top: 150px;
     }
-    .alphawifi_form {
+    #powered_verify {
+        margin-top: 120px;
+    }
+    #powered_verifypass {
+        margin-top: 220px;
+    }
+    #powered_loginsuccess {
+        margin-top: 85px;
+    }
+    #powered_handle {
+        margin-top: 275px;
+    }
+    #powered_thanks {
+        margin-top: 275px;
+    }
+    #powered_welcome {
+        margin-top: 270px;
+    }
+    .zigsawifi_form {
         margin-top: 50px; display: flex; flex-wrap: wrap; flex-direction: column; align-items: center;
     }
     #checkbox_align {
-        margin: auto; width: 30%; margin-left: 500px;
+        margin: auto; width: 30%; margin-left: 570px;
     }
     #check_1 {
         margin-left: 20px; margin-top: 15px;
-    }
-    #check_2 {
-        margin-left: 20px;
     }
 }
 
@@ -148,7 +260,7 @@ a:hover {
 and (min-device-width : 768px) 
 and (max-device-width : 1024px)  {
     #checkbox_align {
-        margin-left: 35%;
+        margin-left: 38%;
         width: 45%; 
     }
     #check_1 {
@@ -157,7 +269,28 @@ and (max-device-width : 1024px)  {
         display: flex;
         justify-content: stretch;
     }
-    #check_2 {
-        margin: auto;
+    #powered {
+        margin-top: 300px;
+    }
+    #powered_verify {
+        margin-top: 270px;
+    }
+    #powered_verifypass {
+        margin-top: 370px;
+    }
+    #powered_loginsuccess {
+        margin-top: 235px;
+    }
+    #powered_handle {
+        margin-top: 420px;
+    }
+    #powered_thanks {
+        margin-top: 420px;
+    }
+    #powered_welcome {
+        margin-top: 410px;
+    }
+    #logo {
+        max-width: 20%;
     }
 }

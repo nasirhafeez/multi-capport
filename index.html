@@ -1,85 +1,3 @@
-<?php
-session_start();
-
-require __DIR__ . '/vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
-
-$dotenv->load();
-
-$res = $_GET["res"];
-if ($res === "notyet") {
-  $_SESSION["uamip"] = $_GET["uamip"];
-  $_SESSION["uamport"] = $_GET["uamport"];
-  $_SESSION["username"] = 'test';
-  $_SESSION["password"] = 'test';
-  $_SESSION["challenge"] = $_GET["challenge"];
-  $_SESSION["userurl"] = $_GET["userurl"];
-
-  $_SESSION["mac"] = $_GET["mac"];
-  $_SESSION["ip"] = $_GET["ip"];
-
-  /*
-The file parameters.php contains MYSQL table name for this site
-*/
-
-  include 'parameters.php';
-
-  /*
-When Unifi redirects the user to an external captive portal it passes two HTTP GET parameters, "id" and "ap" which
-include the user's MAC address and the AP's MAC address respectively. We will capture these parameters, store them
-and use them later on to authenticate the user
-*/
-
-  /*
-We have defined 3 user types:
-
-1. new : fresh user, logging in to the system for the first time, with no previous record in DB
-2. repeat: old user, logging in to the system again, with their record existing in the DB
-
-Login flow for each type of user:
-
-1: new : index.php -> verify.php -> result.php -> verify_pass.php (or verify_fail.php) -> login_success.php -> uam_handle_form.php -> thankyou.htm
-2. repeat : index.php -> welcome.php -> uam_handle_form.php -> thankyou.htm
-*/
-
-  $_SESSION["user_type"] = "new";
-
-  /*
-Checking DB to see if user exists or not. If found, the last_updated column is checked to see if they're logging in
-within 180 days or after that
-*/
-
-  $host_ip = $_SERVER['HOST_IP'];
-  $db_user = $_SERVER['DB_USER'];
-  $db_pass = $_SERVER['DB_PASS'];
-  $db_name = $_SERVER['DB_NAME'];
-
-  $con=mysqli_connect($host_ip,$db_user,$db_pass,$db_name);
-
-  if (mysqli_connect_errno()) {
-          echo "Failed to connect to SQL: " . mysqli_connect_error();
-  }
-
-  $result = mysqli_query($con, "SELECT * FROM `$table_name` WHERE mac='$_SESSION[mac]'");
-
-  if ($result->num_rows >= 1) {
-  	$row=mysqli_fetch_array($result);
-
-    $_SESSION["phone"] = $row[1];
-    $_SESSION["fname"] = $row[2];
-    $_SESSION["lname"] = $row[3];
-    $_SESSION["email"] = $row[4];
-
-    mysqli_close($con);
-    
-    $_SESSION["user_type"] = "repeat";
-    header("Location: welcome.php");
-  }
-  else {
-    mysqli_close($con);
-  }
-?>
   <!doctype html>
   <html>
 
@@ -373,24 +291,7 @@ within 180 days or after that
       <div id="copyright" class="content is-size-6">(C) Copyright 2020</div>
 
     </div>
-  <?php
-} else if ($res === "success") {
-  $redir = $_SESSION["userurl"];
-  if (isset($redir)) {
-    echo "<head>";
-    echo '<meta http-equiv="refresh" content="3;URL=\'' . $redir . '\'">';
-    echo "</head>";
-  } else {
-    echo "<h2>Log-in successful!</h2>";
-  }
-} else if ($res === "failed") {
-  echo "<h2>Whoops, failed to authenticate</h2>";
-} else if ($res === "logoff") {
-  echo "<h2>Logging off ...</h2>";
-} else {
-  echo "<h2>Oops!, bad 'res' parameter</h2>";
-}
-  ?>
+  
   </body>
 
   </html>
