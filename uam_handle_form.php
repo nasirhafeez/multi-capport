@@ -35,11 +35,13 @@ function encode_password($plain, $challenge, $secret) {
   return bin2hex($crypted);
 }
 
-if(isset($_POST["userurl"])) {
-  $_SESSION["userurl"] = $_POST["userurl"];
-} else {
-  unset($_SESSION["userurl"]);
-}
+// if(isset($_POST["userurl"])) {
+//   $_SESSION["userurl"] = $_POST["userurl"];
+// } else {
+//   unset($_SESSION["userurl"]);
+// }
+
+$_SESSION["userurl"] = "thankyou.htm";
 
 $username = $_SESSION["username"];
 $password = $_SESSION["password"];
@@ -128,7 +130,7 @@ header('Location: ' . $redirect_url);
   <meta charset="utf-8">
   <title>ZigsaWiFi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta http-equiv="refresh" content="5;url=thankyou.htm" />
+  <!--<meta http-equiv="refresh" content="5;url=thankyou.htm" />-->
   <link rel="stylesheet" href="bulma.min.css" />
   <script defer src="fontawesome-free-5.3.1-web\js\all.js"></script>
   <link rel="icon" type="image/png" href="favicomatic\favicon-32x32.png" sizes="32x32" />
