@@ -5,7 +5,7 @@ session_start();
 In case of entering wrong code the user has the option to go back to the main page to try again
 */
 
-$redirect_url = "index.php?id=".$_SESSION["id"]."&ap=".$_SESSION["ap"];
+$redirect_url = "index.php?res=notyet&uamip=".$_SESSION["uamip"]."&uamport=".$_SESSION["uamport"]."&challenge=".$_SESSION["challenge"]."&mac=".$_SESSION["mac"]."&ip=".$_SESSION["ip"];
 
 ?>
 <!DOCTYPE HTML>
