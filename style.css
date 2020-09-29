@@ -194,6 +194,12 @@ a:hover {
     font-family: "Ariel", sans-serif;
 }				   
 
+#modal-dimensions {
+    margin-top: 10px;
+    max-height: 95%;
+    max-width: 90%;
+}	
+
 #button_center {
     margin-top: 10px;
     display: flex;
@@ -293,4 +299,7 @@ and (max-device-width : 1024px)  {
     #logo {
         max-width: 20%;
     }
+    #modal-dimensions {
+        margin-top: 20px;
+    }	
 }
