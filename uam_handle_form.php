@@ -3,7 +3,7 @@ session_start();
 
 include 'parameters.php';
 
-$uam_secret = "ht2eb8ej6s4et3rg1ulp";
+$uam_secret = "fTZ642QmVWJv9imit8aihpIh3d";
 
 function encode_password($plain, $challenge, $secret) {
   if ((strlen($challenge) % 2) != 0 ||
