@@ -379,7 +379,7 @@ within 180 days or after that
   $redir = "thankyou.htm";
   if (isset($redir)) {
     echo "<head>";
-    echo '<meta http-equiv="refresh" content="3;URL=\'' . $redir . '\'">';
+    echo '<meta http-equiv="refresh" content="1;URL=\'' . $redir . '\'">';
     echo "</head>";
   } else {
     echo "<h2>Log-in successful!</h2>";
