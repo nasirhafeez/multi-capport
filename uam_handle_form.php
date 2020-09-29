@@ -41,7 +41,7 @@ function encode_password($plain, $challenge, $secret) {
 //   unset($_SESSION["userurl"]);
 // }
 
-$_SESSION["userurl"] = "thankyou.htm";
+// $_SESSION["userurl"] = "thankyou.htm";
 
 $username = $_SESSION["username"];
 $password = $_SESSION["password"];

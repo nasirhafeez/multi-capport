@@ -375,7 +375,8 @@ within 180 days or after that
     </div>
   <?php
 } else if ($res === "success") {
-  $redir = $_SESSION["userurl"];
+  //$redir = $_SESSION["userurl"];
+  $redir = "thankyou.htm";
   if (isset($redir)) {
     echo "<head>";
     echo '<meta http-equiv="refresh" content="3;URL=\'' . $redir . '\'">';
