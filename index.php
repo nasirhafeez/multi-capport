@@ -378,9 +378,10 @@ within 180 days or after that
   //$redir = $_SESSION["userurl"];
   $redir = "thankyou.htm";
   if (isset($redir)) {
-    echo "<head>";
-    echo '<meta http-equiv="refresh" content="1;URL=\'' . $redir . '\'">';
-    echo "</head>";
+    // echo "<head>";
+    // echo '<meta http-equiv="refresh" content="1;URL=\'' . $redir . '\'">';
+    // echo "</head>";
+    header("Location: $redir");
   } else {
     echo "<h2>Log-in successful!</h2>";
   }
