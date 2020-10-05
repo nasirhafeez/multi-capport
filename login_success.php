@@ -3,6 +3,8 @@ session_start();
 
 if($_SESSION["device"] == 'openwrt') {
   $url = "uam_handle_form.php";
+} elseif($_SESSION["device"] == 'unifi') {
+  $url = "connect_unifi.php";
 } else {
   $url = "connect_mik.php";
 }

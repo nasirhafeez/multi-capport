@@ -63,7 +63,6 @@ session_write_close();
 
 $phone=$_SESSION["phone"];
 $mac=$_SESSION["mac"];
-$ip=$_SESSION["ip"];
 $last_updated = date("Y-m-d H:i:s");
 
 /*
@@ -101,13 +100,12 @@ if($_SESSION["user_type"]=="new"){
     `lastname` varchar(45) NOT NULL,
     `email` varchar(45) NOT NULL,
     `mac` varchar(45) NOT NULL,
-    `ip` varchar(45) NOT NULL,
     `last_updated` varchar(45) NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE KEY `id_UNIQUE` (`id`)
   )");
 
-  mysqli_query($con,"INSERT INTO `$table_name` (phone, firstname, lastname, email, mac, ip, last_updated) VALUES ('$phone', '$fname', '$lname', '$email', '$mac', '$ip', '$last_updated')");
+  mysqli_query($con,"INSERT INTO `$table_name` (phone, firstname, lastname, email, mac, last_updated) VALUES ('$phone', '$fname', '$lname', '$email', '$mac', '$last_updated')");
 
 }
 else {
@@ -116,7 +114,7 @@ else {
   $lname=$_SESSION['lname'];
   $email=$_SESSION['email'];
 
-  mysqli_query($con,"INSERT INTO `$table_name` (phone, firstname, lastname, email, mac, ip, last_updated) VALUES ('$phone', '$fname', '$lname', '$email', '$mac', '$ip', '$last_updated')");
+  mysqli_query($con,"INSERT INTO `$table_name` (phone, firstname, lastname, email, mac, last_updated) VALUES ('$phone', '$fname', '$lname', '$email', '$mac', '$last_updated')");
 }
 
 mysqli_close($con);

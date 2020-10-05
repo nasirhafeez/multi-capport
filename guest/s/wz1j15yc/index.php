@@ -1,8 +1,10 @@
 <?php
 session_start();
 
-//header("Location: https://zigsawifi.net");
+$_SESSION["device"] = 'unifi';
+$_SESSION["mac"] = $_GET["id"];
+$_SESSION["ap"] = $_GET["ap"];
 
-print_r($_GET);
+header("Location: https://zigsawifi.net");
 
 ?>

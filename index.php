@@ -387,8 +387,7 @@ within 180 days or after that
   echo "<h2>Whoops, failed to authenticate</h2>";
 } else if ($res === "logoff") {
   echo "<h2>Logging off ...</h2>";
-} else if ($_POST['mac-esc']) {
-  
+} else if ($_POST['mac-esc']) { 
   $_SESSION["mac"]=$_POST['mac'];
   $_SESSION["ip"]=$_POST['ip'];
   $_SESSION["linkorig"]=$_POST['link-orig'];
@@ -396,10 +395,12 @@ within 180 days or after that
 
   header("Location: mikrotik.php");
   die();
+} else if ($_SESSION["device"] == 'unifi') {
+  header("Location: unifi.php");
+  die();
 } 
 else {
   echo "<h2>Oops!, bad 'res' parameter</h2>";
-  print_r($_GET);
 }
   ?>
   </body>
