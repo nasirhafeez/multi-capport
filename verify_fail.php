@@ -6,6 +6,8 @@ In case of entering wrong code the user has the option to go back to the main pa
 */
 if($_SESSION["device"] == 'openwrt') {
   $redirect_url = "index.php?res=notyet&uamip=".$_SESSION["uamip"]."&uamport=".$_SESSION["uamport"]."&challenge=".$_SESSION["challenge"]."&mac=".$_SESSION["mac"]."&ip=".$_SESSION["ip"];
+} elseif($_SESSION["device"] == 'unifi') {
+  $redirect_url = "unifi.php";
 } else {
   $redirect_url = "mikrotik.php";
 }
