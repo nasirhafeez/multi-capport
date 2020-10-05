@@ -387,14 +387,12 @@ within 180 days or after that
 } else if ($res === "logoff") {
   echo "<h2>Logging off ...</h2>";
 } else if ($_POST['mac-esc']) {
-  //header("Location: mikrotik.php");
-  //die();
-  print_r($_POST);
+  header("Location: mikrotik.php");
+  die();
 } 
 else {
   echo "<h2>Oops!, bad 'res' parameter</h2>";
 }
   ?>
   </body>
-
   </html>
