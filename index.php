@@ -391,14 +391,8 @@ within 180 days or after that
   
   $_SESSION["mac"]=$_POST['mac'];
   $_SESSION["ip"]=$_POST['ip'];
-  $_SESSION["linklogin"]=$_POST['link-login'];
   $_SESSION["linkorig"]=$_POST['link-orig'];
-  $_SESSION["error"]=$_POST['error'];
-  $_SESSION["chapid"]=$_POST['chap-id'];
-  $_SESSION["chapchallenge"]=$_POST['chap-challenge'];
   $_SESSION["linkloginonly"]=$_POST['link-login-only'];
-  $_SESSION["linkorigesc"]=$_POST['link-orig-esc'];
-  $_SESSION["macesc"]=$_POST['mac-esc'];
 
   header("Location: mikrotik.php");
   die();
