@@ -385,7 +385,7 @@ within 180 days or after that
   echo "<h2>Whoops, failed to authenticate</h2>";
 } else if ($res === "logoff") {
   echo "<h2>Logging off ...</h2>";
-} else if ($_GET['macesc']) {
+} else if ($_GET['mac-esc']) {
   header("Location: mikrotik.php");
   die();
 } 
