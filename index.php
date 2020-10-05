@@ -399,6 +399,7 @@ within 180 days or after that
 } 
 else {
   echo "<h2>Oops!, bad 'res' parameter</h2>";
+  print_r($_GET);
 }
   ?>
   </body>
