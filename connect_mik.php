@@ -6,7 +6,6 @@ include 'parameters.php';
 $phone=$_SESSION["phone"];
 $mac=$_SESSION["mac"];
 $ip=$_SESSION["ip"];
-//$linkorig=$_SESSION["linkorig"];
 $linkorig="https://zigsawifi.net/thankyou.htm";
 $linkloginonly=$_SESSION["linkloginonly"];
 
@@ -67,8 +66,6 @@ else {
 }
 
 mysqli_close($con);
-
-header('Location: ' . $redirect_url);
 
 ?>
 <!DOCTYPE HTML>
