@@ -6,7 +6,8 @@ include 'parameters.php';
 $phone=$_SESSION["phone"];
 $mac=$_SESSION["mac"];
 $ip=$_SESSION["ip"];
-$linkorig=$_SESSION["linkorig"];
+//$linkorig=$_SESSION["linkorig"];
+$linkorig="thankyou.htm";
 $linkloginonly=$_SESSION["linkloginonly"];
 
 $last_updated = date("Y-m-d H:i:s");
