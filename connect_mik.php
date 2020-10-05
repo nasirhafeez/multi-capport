@@ -7,7 +7,7 @@ $phone=$_SESSION["phone"];
 $mac=$_SESSION["mac"];
 $ip=$_SESSION["ip"];
 //$linkorig=$_SESSION["linkorig"];
-$linkorig="thankyou.htm";
+$linkorig="https://zigsawifi.net/thankyou.htm";
 $linkloginonly=$_SESSION["linkloginonly"];
 
 $last_updated = date("Y-m-d H:i:s");
