@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+if($_SESSION["device"] == 'openwrt') {
+  $url = "uam_handle_form.php";
+} else {
+  $url = "connect_mik.php";
+}
+
 ?>
 <!doctype html>
 <html>
@@ -22,7 +29,7 @@ session_start();
       </figure>
     </section>
 
-    <form id="login_success" class="zigsawifi_form_success" method="post" action="uam_handle_form.php">
+    <form id="login_success" class="zigsawifi_form_success" method="post" action="<?php echo htmlspecialchars($url);?>">
       
       <div id="gap" class="content is-size-6"></div>
       
