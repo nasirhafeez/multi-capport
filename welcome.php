@@ -1,6 +1,12 @@
 <?php error_reporting(E_ALL ^ E_NOTICE); 
 session_start();
 
+if($_SESSION["device"] == 'openwrt') {
+  $url = "uam_handle_form.php";
+} else {
+  $url = "connect_mik.php";
+}
+
 /*
 Printing a welcome message for the user
 */
@@ -14,7 +20,7 @@ Printing a welcome message for the user
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="bulma.min.css" />
   <script defer src="vendor\fortawesome\font-awesome\js\all.js"></script>
-  <meta http-equiv="refresh" content="5;url=uam_handle_form.php" />
+  <meta http-equiv="refresh" content="5;url=<?php echo htmlspecialchars($url);?>" />
   <link rel="icon" type="image/png" href="favicomatic\favicon-32x32.png" sizes="32x32" />
   <link rel="icon" type="image/png" href="favicomatic\favicon-16x16.png" sizes="16x16" />
   <link rel="stylesheet" href="style.css">
