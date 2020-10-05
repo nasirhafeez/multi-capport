@@ -400,7 +400,7 @@ within 180 days or after that
   $_SESSION["linkorigesc"]=$_POST['link-orig-esc'];
   $_SESSION["macesc"]=$_POST['mac-esc'];
 
-$print_r($_POST);
+  $print_r($_POST);
 
   //header("Location: mikrotik.php");
   //die();
