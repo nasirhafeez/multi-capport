@@ -3,69 +3,15 @@ session_start();
 
 include 'parameters.php';
 
-$uam_secret = "fTZ642QmVWJv9imit8aihpIh3d";
-
-function encode_password($plain, $challenge, $secret) {
-  if ((strlen($challenge) % 2) != 0 ||
-  strlen($challenge) == 0)
-  return FALSE;
-  
-  $hexchall = hex2bin($challenge);
-  if ($hexchall === FALSE)
-  return FALSE;
-  
-  if (strlen($secret) > 0) {
-    $crypt_secret = md5($hexchall . $secret, TRUE);
-    $len_secret = 16;
-  } else {
-    $crypt_secret = $hexchall;
-    $len_secret = strlen($hexchall);
-  }
-  
-  /* simulate C style \0 terminated string */
-  $plain .= "\x00";
-  $crypted = '';
-  for ($i = 0; $i < strlen($plain); $i++)
-  $crypted .= $plain[$i] ^ $crypt_secret[$i % $len_secret];
-  
-  $extra_bytes = 0;//rand(0, 16);
-  for ($i = 0; $i < $extra_bytes; $i++)
-  $crypted .= chr(rand(0, 255));
-  
-  return bin2hex($crypted);
-}
-
-// if(isset($_POST["userurl"])) {
-//   $_SESSION["userurl"] = $_POST["userurl"];
-// } else {
-//   unset($_SESSION["userurl"]);
-// }
-
-// $_SESSION["userurl"] = "thankyou.htm";
-
-$username = $_SESSION["username"];
-$password = $_SESSION["password"];
-$uamip = $_SESSION["uamip"];
-$uamport = $_SESSION["uamport"];
-$challenge = $_SESSION["challenge"];
-
-$encoded_password = encode_password($password, $challenge, $uam_secret);
-
-$redirect_url = "http://$uamip:$uamport/logon?" .
-"username=" . urlencode($username) .
-"&password=" . urlencode($encoded_password);
-
-# point them toward a different landing page if you want ...
-# (couldn't get this working)
-#$redirect_url .= "&redir=" . urlencode("http://www.nytimes.com");
-
-session_write_close();
-
 $phone=$_SESSION["phone"];
 $mac=$_SESSION["mac"];
 $ip=$_SESSION["ip"];
+$linkorig=$_SESSION["linkorig"];
+$linkloginonly=$_SESSION["linkloginonly"];
+
 $last_updated = date("Y-m-d H:i:s");
 
+$username="admin";
 /*
 Collecting the data entered by users of type "new" or "repeat_old" in form. It will be posted to the DB.
 For "repeat_recent" type users no change will be made in the DB, they'll be authorized directly
@@ -151,6 +97,33 @@ header('Location: ' . $redirect_url);
     <div id="powered_handle" class="content is-size-6">Powered by Zigsa</div>
     <div id="copyright" class="content is-size-6">(C) Copyright 2020</div>
 
-	</div>
+  </div>
+  
+  <script type="text/javascript" src="./md5.js"></script>
+        <script type="text/javascript">
+                        function doLogin() {
+                                        <?php if(strlen($chapid) < 1) echo "return true;\n"; ?>
+                                        document.sendin.username.value = document.login.username.value;
+                                        document.sendin.password.value = hexMD5('\011\373\054\364\002\233\266\263\270\373\173\323\234\313\365\337\356');
+                                        document.sendin.submit();
+                                        return false;
+                        }
+        </script>
+        <script type="text/javascript">
+                function formAutoSubmit () {
+                        var frm = document.getElementById("login");
+                        document.getElementById("login").submit();
+                        frm.submit();
+        }
+        window.onload = formAutoSubmit;
+        </script>
+
+        <form id="login" method="post" action="<?php echo $linkloginonly; ?>" onSubmit="return doLogin()">
+        <input name="dst" type="hidden" value="<?php echo $linkorig; ?>" />
+        <input name="popup" type="hidden" value="false" />
+        <input name="username" type="hidden" value="<?php echo $username; ?>"/>
+        <input name="password" type="hidden"/>
+        </form>
+
 </body>
 </html>

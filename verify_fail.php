@@ -4,8 +4,11 @@ session_start();
 /*
 In case of entering wrong code the user has the option to go back to the main page to try again
 */
-
-$redirect_url = "index.php?res=notyet&uamip=".$_SESSION["uamip"]."&uamport=".$_SESSION["uamport"]."&challenge=".$_SESSION["challenge"]."&mac=".$_SESSION["mac"]."&ip=".$_SESSION["ip"];
+if($_SESSION["device"] == 'openwrt') {
+  $redirect_url = "index.php?res=notyet&uamip=".$_SESSION["uamip"]."&uamport=".$_SESSION["uamport"]."&challenge=".$_SESSION["challenge"]."&mac=".$_SESSION["mac"]."&ip=".$_SESSION["ip"];
+} else {
+  $redirect_url = "mikrotik.php";
+}
 
 ?>
 <!DOCTYPE HTML>
