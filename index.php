@@ -8,6 +8,9 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
 $dotenv->load();
 
 $res = $_GET["res"];
+
+$mik = $_GET['mac-esc'];
+
 if ($res === "notyet") {
   $_SESSION["uamip"] = $_GET["uamip"];
   $_SESSION["uamport"] = $_GET["uamport"];
@@ -391,6 +394,8 @@ within 180 days or after that
 } 
 else {
   echo "<h2>Oops!, bad 'res' parameter</h2>";
+  echo $mik;
+  echo "aslam";
 }
   ?>
   </body>
