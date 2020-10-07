@@ -1,0 +1,7 @@
+<?php
+
+#MySQL DB table name for this site
+
+$table_name = "";
+
+?>
