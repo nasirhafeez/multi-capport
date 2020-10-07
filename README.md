@@ -1,5 +1,5 @@
 # Multi Vendor Captive Portal with Twilio Verify
-Multi-vendor external captive portal supporting Ubiquiti, Mikrotik and OpenWRT with SMS login using Twilio Verify. 
+Multi-vendor external captive portal supporting Ubiquiti, Mikrotik and OpenWRT (Coova Chilli) with SMS login using Twilio Verify. 
 
 The captive portal web server can be setup using the instructions given [here](https://gist.github.com/nasirhafeez/4e1c2c5536d313db96e2b4ce4b3b269e). The following actions are required to use the code given in this repo:
  
