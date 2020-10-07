@@ -8,7 +8,9 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "/../");
 $dotenv->load();
 
 $res = $_GET["res"];
+
 if ($res === "notyet") {
+  $_SESSION["device"] = 'openwrt';
   $_SESSION["uamip"] = $_GET["uamip"];
   $_SESSION["uamport"] = $_GET["uamport"];
   $_SESSION["username"] = 'test';
@@ -385,10 +387,21 @@ within 180 days or after that
   echo "<h2>Whoops, failed to authenticate</h2>";
 } else if ($res === "logoff") {
   echo "<h2>Logging off ...</h2>";
-} else {
+} else if ($_POST['mac-esc']) { 
+  $_SESSION["mac"]=$_POST['mac'];
+  $_SESSION["ip"]=$_POST['ip'];
+  $_SESSION["linkorig"]=$_POST['link-orig'];
+  $_SESSION["linkloginonly"]=$_POST['link-login-only'];
+
+  header("Location: mikrotik.php");
+  die();
+} else if ($_SESSION["device"] == 'unifi') {
+  header("Location: unifi.php");
+  die();
+} 
+else {
   echo "<h2>Oops!, bad 'res' parameter</h2>";
 }
   ?>
   </body>
-
   </html>
